@@ -1,0 +1,65 @@
+#home
+     section.wrapper
+           header
+                 h1.left
+                    img
+                  nav.right
+                       ul
+                           li >a language
+                           	ul.dropdown
+					li*3>a
+			    li>a  login
+section#spotlight
+	h1
+	h4*2
+	form>input type email
+	a.button  
+
+section#movie
+	div.slideshow
+		h2
+		button
+		div.slideshow_wrapper
+			img          
+
+section#about
+	div.wrapper
+	ul
+		li*4
+		  h2
+		  p
+       div .widget
+		span>icon
+
+section#FandQ_container*7
+	details
+		summary
+		p		
+		
+
+
+
+section#membership
+	div.section
+		p
+		form>input type email
+		a.button
+
+
+section#footer_continer
+	footer
+		p
+		div#footer_1
+			a*4
+		div#footer_2
+			a*4
+		div#footer_3
+			a*4
+		div#footer_4
+			a*4
+	div#footer_lang
+		ul
+			li>a language
+			   ul.dropdown
+				li*3
+		                    
