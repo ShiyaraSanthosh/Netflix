@@ -105,8 +105,8 @@ nav {
 }
 
 /* Email Input */
-.email_signup {
-    width: 100%;
+/* .email_signup {
+    width: 70%;
     font-size: 1em;
     line-height: 1.5;
     padding: 0.8rem 1rem;
@@ -115,6 +115,26 @@ nav {
     background: transparent;
     color: white;
     border-radius: 5px;
+} */
+input {
+    width: 70%;
+    padding: 12px 12px;
+    margin: 8px 4px;
+    box-sizing: border-box;
+    border: 1px solid white;
+
+}
+.label_name {
+    position: absolute;
+    font-size: 10px;
+    padding: 0 25px;
+    color: white;
+    margin: 0 20px;
+}
+.email_signup .button {
+    text-align: center;
+    height: 70%;
+    margin: 10px 0;
 }
 
 /* Curve Design Section */
@@ -180,26 +200,82 @@ nav {
 .slider_image {
     height: 300px;
     min-width: 250px;
-    ;
     
 }
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    min-width: 200px;
+    justify-content: space-between;
+    font-weight: 400;
+    color: white;
+    padding-left: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+    min-width: 200px;
+}
+.cards p {
+    padding: 10px;
 
-
+}
+.more_info h1 {
+    font-weight: bold;
+    font-size: 25px;
+    padding: 50px;
+    padding-bottom: 10px;
+    margin-left: 100px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.cards h1 {
+    font-weight: bold;
+    font-size: 25px;
+    /* s */
+    padding: 5px;
+    margin-top: 20px;
+}
+.cards li {
+    border: 1px solid black;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    background-image: linear-gradient(to top left, #26073d, #4e0853d3);
+    width: 100%;
+    height: 100%
+    position: relative;
+}
+.cards svg {
+    background-position: top right;
+}
 
 
 
 
 .faq-container {
-    width: 600px;
+    width: 79%;
     /* Adjust as needed */
-    margin: 20px auto;
-    border: 1px solid #a12727;
+    margin: 3% auto;
+    border: 1px solid black;
     border-radius: 5px;
+}
+.faq-container details {
+    margin-bottom: 10px;
+}
+.faq-container h1 {
+    font-weight: bold;
+    font-size: 25px;
+    padding-bottom: 10px;
+    margin-left: 1%;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-left: 2%;
+
 }
 
 details {
     border-bottom: 1px solid #ddd;
-    background-color: #924c4c;
+    background-color: #303030;
 }
 
 summary {
@@ -207,25 +283,74 @@ summary {
     cursor: pointer;
     position: relative;
     font-weight: bold;
+    background-color: #303030;
+    margin-bottom: 20px;
+    font-size: 19px;
 }
 
-summary:after {
+
+summary::after {
     content: '+';
     position: absolute;
-    right: 15px;
+    right: 20px;
     font-size: 10px;
+    /* border-bottom: 2px solid black; */
 }
 
-details[open] summary:after {
+details[open] summary::after {
     content: '';
+    
+
 }
 
 details p {
     padding: 15px;
-    margin: 0;
-    background-color: #140b0b;
+    margin: 20px;
+    background-color: #303030;
+    border: 2px solid rgb(2, 0, 0);
+    font-size: 20px;
+}
+summary:hover {
+    background-color: rgba(192, 127, 127, 0.1);
 }
 
-details[open] {
-    background-color: #0c0101;
+/* details[open] {
+    background-color: rgb(64, 55, 55);
+} */
+.faq-container small {
+    font-size: 15px;
+    text-align: center;
+    margin-left: 250px;
+    margin-top: 34px;
+
+}
+.faq-container .email_signup {
+    max-width: 600px;
+    margin: 20px auto 20px;
+}
+.footer  {
+    padding: 50px 15% 10px;
+
+}
+.footer p {
+    font-size: 15px;
+    margin-bottom: 30px;
+    font-weight: 100;
+    
+}
+.column {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+.footer .column ul li{
+    margin-bottom: 10px;
+}
+.footer .lang select {
+    margin-top: 40px;
+}
+.footer .lang p {
+    margin-top: 40px;
 }
