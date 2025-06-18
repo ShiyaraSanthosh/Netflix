@@ -45,6 +45,8 @@
       </div>
     </div>
 
+    <section id="middle">
+
     <div class="curveArea">
       <div class="mainBox">
         <div class="curveSection"></div>
@@ -52,35 +54,51 @@
     </div>
 
     <section id="carousel">
-      <div class="slider_items">
-        <!-- <h1 class="heading">Trending Now</h1> -->
-        <img src="IMAGE/movie1.png" alt="Image 2" class="slider_image" />
-      </div>
-      <div class="slider_items">
-        <img src="IMAGE/movie2.png" alt="Image 2" class="slider_image" />
-      </div>
-      <div class="slider_items">
-        <img src="IMAGE/movie3.png" alt="Image 3" class="slider_image" />
-      </div>
-      <div class="slider_items">
-        <img src="IMAGE/movie4.png" alt="Image 4" class="slider_image" />
-      </div>
-      <div class="slider_items">
-        <img src="IMAGE/movie5.png" alt="Image 5" class="slider_image" />
-      </div>
-      <div class="slider_items">
-        <img src="IMAGE/movie6.png" alt="Image 6" class="slider_image" />
-      </div>
-      <div class="slider_items">
-        <img src="IMAGE/movie7.png" alt="Image 7" class="slider_image" />
-      </div>
-      <div class="slider_items">
-        <img src="IMAGE/movie8.png" alt="Image 8" class="slider_image" />
-      </div>
-      <div class="slider_items">
-        <img src="IMAGE/movie9.png" alt="Image 9" class="slider_image" />
+      <h1 class="carousel-heading">Trending Now</h1>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn carousel-btn-left" id="prevBtn">‹</button>
+        <div class="carousel-container" id="carouselContainer">
+          <div class="slider_items">
+            <div class="movie-number">1</div>
+            <img src="IMAGE/movie1.png" alt="Movie 1" class="slider_image" />
+          </div>
+          <div class="slider_items">
+            <div class="movie-number">2</div>
+            <img src="IMAGE/movie2.png" alt="Movie 2" class="slider_image" />
+          </div>
+          <div class="slider_items">
+            <div class="movie-number">3</div>
+            <img src="IMAGE/movie3.png" alt="Movie 3" class="slider_image" />
+          </div>
+          <div class="slider_items">
+            <div class="movie-number">4</div>
+            <img src="IMAGE/movie4.png" alt="Movie 4" class="slider_image" />
+          </div>
+          <div class="slider_items">
+            <div class="movie-number">5</div>
+            <img src="IMAGE/movie5.png" alt="Movie 5" class="slider_image" />
+          </div>
+          <div class="slider_items">
+            <div class="movie-number">6</div>
+            <img src="IMAGE/movie6.png" alt="Movie 6" class="slider_image" />
+          </div>
+          <div class="slider_items">
+            <div class="movie-number">7</div>
+            <img src="IMAGE/movie7.png" alt="Movie 7" class="slider_image" />
+          </div>
+          <div class="slider_items">
+            <div class="movie-number">8</div>
+            <img src="IMAGE/movie8.png" alt="Movie 8" class="slider_image" />
+          </div>
+          <div class="slider_items">
+            <div class="movie-number">9</div>
+            <img src="IMAGE/movie9.png" alt="Movie 9" class="slider_image" />
+          </div>
+        </div>
+        <button class="carousel-btn carousel-btn-right" id="nextBtn">›</button>
       </div>
     </section>
+
     <section id="spotlight">
       <section class="wrapper">
         <div class="more_info">
@@ -153,7 +171,7 @@
         <summary>Is netflix good for child</summary>
         <p>
           The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space.<br/>
-          Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.
+          Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don't want kids to see.
 
         </p>
       </details>
@@ -200,5 +218,69 @@
     </div>
     </section>
   </body>
+
+  <script>
+    // Carousel Navigation JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousel = document.getElementById('carouselContainer');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      
+      const slideWidth = 270; // Width of each slide including gap
+      let currentPosition = 0;
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      
+      // Next button functionality
+      nextBtn.addEventListener('click', function() {
+        currentPosition += slideWidth * 3; // Move 3 slides at a time
+        if (currentPosition > maxScroll) {
+          currentPosition = maxScroll;
+        }
+        carousel.scrollTo({
+          left: currentPosition,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Previous button functionality
+      prevBtn.addEventListener('click', function() {
+        currentPosition -= slideWidth * 3; // Move 3 slides at a time
+        if (currentPosition < 0) {
+          currentPosition = 0;
+        }
+        carousel.scrollTo({
+          left: currentPosition,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Update button visibility based on scroll position
+      function updateButtonVisibility() {
+        prevBtn.style.opacity = currentPosition <= 0 ? '0.5' : '1';
+        nextBtn.style.opacity = currentPosition >= maxScroll ? '0.5' : '1';
+        prevBtn.style.pointerEvents = currentPosition <= 0 ? 'none' : 'all';
+        nextBtn.style.pointerEvents = currentPosition >= maxScroll ? 'none' : 'all';
+      }
+      
+      // Listen to scroll events to update current position
+      carousel.addEventListener('scroll', function() {
+        currentPosition = carousel.scrollLeft;
+        updateButtonVisibility();
+      });
+      
+      // Initialize button states
+      updateButtonVisibility();
+      
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        const newMaxScroll = carousel.scrollWidth - carousel.clientWidth;
+        if (currentPosition > newMaxScroll) {
+          currentPosition = newMaxScroll;
+          carousel.scrollLeft = currentPosition;
+        }
+        updateButtonVisibility();
+      });
+    });
+  </script>
 
 </html>
